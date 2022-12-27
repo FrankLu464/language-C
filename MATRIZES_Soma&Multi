@@ -1,0 +1,65 @@
+ int i, j, soma= 0;
+    int mat[3][3];
+    float multi= 1;
+
+    for(i=0; i<3; i++){
+        for(j=0; j<3; j++){
+            printf("Insira um valor a matriz na posicao |%d| |%d|: \n", i, j);
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    
+    printf("\n\nEXIBINDO A MATRIZ\n");
+     for(i=0; i<3; i++){
+        for(j=0; j<3; j++){
+            printf(" [%d]", mat[i][j]);
+        }
+        printf("\n");
+    }     
+    
+     printf("\n\nEXIBINDO A DIAGONAL PRINCIPAL\n");
+     for(i=0; i<3; i++){
+        for(j=0; j<3; j++){
+            if(i == j){
+            printf("|%d|", mat[i][j]);
+            }else{
+                printf("|\0%d|",  mat[i][j]);
+            }
+        }
+        printf("\n");
+    }
+    
+    
+    printf("\n\nEXIBINDO A DIAGONAL SECUNDARIA\n");
+    for(i=0; i<3; i++){
+        for(j=0; j<3; j++){
+            if(i+j == 2){
+                printf("|%d|", mat[i][j]);
+            }else{
+                printf("|\0%d|",  mat[i][j]);
+            }
+        }
+         printf("\n");
+    }    
+
+    
+    printf("\n\nSOMA DIAGONAL PRINCIPAL:\n");
+       for(i=0; i<3; i++){
+        for(j=0; j<3; j++){
+             if(i == j){
+                soma = soma + mat[i][j];
+             }
+            
+        }
+    }
+    printf("a soma dos valores é: %d", soma); 
+    
+    printf("\n\nMULTIPLICACAO DIAGONAL SECUNDARIA:\n");
+    for(i=0; i<3; i++){
+        for(j=0; j<3; j++){
+            if(i+j == 2){
+                multi = multi * mat[i][j];
+            }
+        }
+    }    
+    printf("A multiplicacao dos valores é: %0.2f", multi);
