@@ -1,0 +1,41 @@
+struct bandasMusicais{
+    char nome[30];
+    char tipo_musica[20];
+    int num_Integrantes;
+    int rank_posicao;
+};
+
+typedef struct bandasMusicais banda;
+
+int main(){
+    banda lista[5];
+    int i;
+    
+    for(i=0; i<5; i++){
+        printf("\n\nBANDAS MUSICAIS\n\n");
+        puts("\nNome: ");
+        scanf("%30[^\n]s", lista[i].nome);
+        fflush(stdin);
+        
+        puts("\nTipo de musica: ");
+        scanf("%20[^\n]s", lista[i].tipo_musica);
+        fflush(stdin);
+
+        puts("\nNumero de integrantes: ");
+        scanf("%d", lista[i].num_Integrantes);
+        fflush(stdin);
+
+        puts("\nRanking da banda: ");
+        scanf("%d", lista[i].rank_posicao);
+        fflush(stdin);
+
+    }
+    
+    for(i=0; i<5; i++){
+        printf("\n\nBANDA %d\n", i+1);
+        printf("Nome: %c", lista[i].nome);
+        printf("\nTipo musical: %c", lista[i].tipo_musica);
+        printf("\nNumero de integrantes: %d", lista[i].num_Integrantes);
+        printf("\nRanking da banda: %d\n", lista[i].rank_posicao);
+    }
+    
