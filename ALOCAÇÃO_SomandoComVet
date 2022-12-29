@@ -1,0 +1,32 @@
+int i, numero;
+int *vetP;
+int soma_total = 0, soma1 = 0, soma2 = 0;
+
+printf("Insira um numero: ");
+scanf("%d", &numero);
+
+vetP = (int *)malloc(numero * sizeof(int));
+
+for(i=0; i<numero; i++){
+    printf("\n\nDigite um número para a posiçao %d do vetor: ", i);
+    scanf("%d", &vetP[i]);
+    
+    soma_total = soma_total + vetP[i];
+    
+    if(vetP[i] % 2 == 0){
+        soma1 = soma1 + vetP[i];
+    } else{
+        soma2 = soma2 + vetP[i];
+    }
+}
+
+printf("\nEXIBINDO O VETOR:\n");
+for(i=0; i<numero; i++){
+    printf("[%d]", vetP[i]);
+}
+
+printf("\nSoma dos valores no vetor: %d", soma_total);
+printf("\n\nSoma dos valores pares no vetor: %d", soma1);
+printf("\nSoma dos valores ímpares no vetor: %d", soma2);
+
+free(vetP);
