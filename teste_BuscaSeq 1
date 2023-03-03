@@ -1,7 +1,12 @@
-int BuscaSeq(int *vet, char convidado){
-    int i, TAM;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//#define TAM 5
+
+int buscaSeq(int *vet, char convidado){
+    int i, tamanho;
     
-    for(i=0; i<TAM; i++){
+    for(i=0; i<tamanho; i++){
         if(convidado == vet[i]){
         return (1);
         }
@@ -11,9 +16,23 @@ int BuscaSeq(int *vet, char convidado){
 
 
 int main() {
-    int i, TAM, v;
-    int busca;
-    char elemento[TAM][50];
+    int i, v, tamanho;
+   // int busca;
+    char elemento[tamanho][250];
+    
+    buscaSeq(&v, elemento);
+    
+    printf("\nInforme a quantidade máxima de convidados: ");
+    scanf("%d", &tamanho);
+    
+    v = strlen(elemento);
+    
+    
+    
+    for(i=0; i<tamanho; i++){
+        printf("\nNome do convidado %d: ", i+1);
+        scanf("%s", elemento[i]);
+    }
     
     
 
