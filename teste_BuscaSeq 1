@@ -1,40 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#define TAM 5
+#include <locale.h>
 
-int buscaSeq(int *vet, char convidado){
-    int i, tamanho;
+int buscaSeq(char **lista, int tam, char pessoa[30]){
+    int i;
     
-    for(i=0; i<tamanho; i++){
-        if(convidado == vet[i]){
-        return (1);
+    for(i=0; i<tam; i++){
+        if(strcmp(pessoa, lista[i]) == 0){
+        return 1;
         }
     }
-   return (0); 
+    
+    return 0;
 }
 
-
 int main() {
-    int i, v, tamanho;
-   // int busca;
-    char elemento[tamanho][250];
+setlocale(LC_ALL, "Portuguese");
+
+int i, busca, tamanho;
+char **convidados, chave[30];
+
+printf("Quantos convidados terão na lista? ");
+scanf("%d", &tamanho);
+
+convidados = (char **)malloc(tamanho * sizeof(char));
+
+for(i=0; i<tamanho; i++){
     
-    buscaSeq(&v, elemento);
-    
-    printf("\nInforme a quantidade máxima de convidados: ");
-    scanf("%d", &tamanho);
-    
-    v = strlen(elemento);
-    
-    
-    
-    for(i=0; i<tamanho; i++){
-        printf("\nNome do convidado %d: ", i+1);
-        scanf("%s", elemento[i]);
-    }
-    
-    
+    convidados[i] = (char *)malloc(30 * sizeof(char*)); 
+}
+
+printf("\nInforme o nome dos convidados: ");
+for(i=0; i<tamanho; i++){
+    printf("\n-> ");
+    scanf("%s", convidados[i]);
+}
+
+printf("Quem você procura na lista? ");
+scanf("%s", chave);
+
+busca = buscaSeq(convidados, tamanho, chave);
+
+if(busca == 1){
+    printf("\n\n%s é convidado(a).", chave);
+}else{
+    printf("\n\n%s é um penetra!", chave);
+}
 
     return 0;
 }
