@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define TAM 3
+
+struct alunos{
+    char nome[50];
+    float nota;
+};
+
+typedef struct alunos aluno;
+
+int comp_alunos(const void* p1, const void* p2){
+    aluno *a1 = (aluno*)p1;
+    aluno *a2 = (aluno*)p2;
+    
+    if(a1->nota > a2->nota){
+        return -1;
+    }else{
+        if(a1->nota < a2->nota){
+            return 1;
+        } else{
+            return strcmp((char*)a1->nome, (char*)a2->nome);
+        }
+    }
+    
+}
+
+
+int main() {
+    aluno vetor[TAM];
+    int i;
+    
+    
+    
+    printf("------LISTA DESORDENADA DE ALUNOS------");
+    for(i=0; i<TAM; i++){
+        printf("\nNome do aluno %d: ", i+1);
+        scanf("%50[^\n]s", vetor[i].nome);
+        fflush(stdin);
+        
+        printf("Nota do aluno %d: ", i+1);
+        scanf("%f", &vetor[i].nota);
+        fflush(stdin);
+    }
+    
+    qsort(vetor, TAM, sizeof(aluno), comp_alunos);
+    
+    printf("------LISTA ORDENADA DE ALUNOS------");
+    for(i=0; i<TAM; i++){
+        printf("\n\n%s", vetor[i].nome);
+        printf("\n%0.2f", vetor[i].nota);
+    }
+    
+
+    return 0;
+}
